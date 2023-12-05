@@ -33,18 +33,22 @@ png(filename = "Plot4.png" , width = 480 , height = 480)
 par(mfrow = c(2,2))
 
 #Topleft plot
-plot(data$Date , data$Global_active_power , type ="l" , xlab = "" , ylab = "Global Active Power (kilowatts)")
+plot(data$Date , data$Global_active_power , type ="l" , xlab = "" , ylab = "Global Active Power (kilowatts)" , xaxt = "n")
+axis(1, at = as.POSIXct(c("2007-02-01", "2007-02-02", "2007-02-03")), labels = c("Thu", "Fri", "Sat"))
 
 #Topright plot
-plot(data$Date , data$Voltage , xlab = "datetime" , ylab = "Voltage" , type ="l" )
+plot(data$Date , data$Voltage , xlab = "datetime" , ylab = "Voltage" , type ="l" ,xaxt = "n" )
+axis(1, at = as.POSIXct(c("2007-02-01", "2007-02-02", "2007-02-03")), labels = c("Thu", "Fri", "Sat"))
 
 #Bottomleft plot
-plot(data$Date , data$Sub_metering_1 , type ="l" , xlab = "" , ylab = "Energy sub metering" )
+plot(data$Date , data$Sub_metering_1 , type ="l" , xlab = "" , ylab = "Energy sub metering" ,xaxt="n" )
 points(data$Date , data$Sub_metering_2 , type ="l" , col = "blue")
 points(data$Date , data$Sub_metering_3 , type ="l" , col = "red")
 legend("topright" , legend = c("sub metering 1","sub metering 2","sub metering 3") , col = c("black" , "blue" , "red") , lty = 1 , cex =0.5)
+axis(1, at = as.POSIXct(c("2007-02-01", "2007-02-02", "2007-02-03")), labels = c("Thu", "Fri", "Sat"))
 
 #Bottomright plot
-plot(data$Date , data$Global_reactive_power , type ="l" , xlab = "Datetime" , ylab = "Global Reactive Power (kilowatts)")
+plot(data$Date , data$Global_reactive_power , type ="l" , xlab = "Datetime" , ylab = "Global Reactive Power (kilowatts)" , xaxt = "n")
+axis(1, at = as.POSIXct(c("2007-02-01", "2007-02-02", "2007-02-03")), labels = c("Thu", "Fri", "Sat"))
 
 dev.off()

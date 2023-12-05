@@ -29,5 +29,6 @@ data$Voltage <- as.numeric(data$Voltage)
 
 #plotting and writing to a PNG file
 png(filename = "Plot2.png" , width = 480 , height = 480)
-plot(data$Date , data$Global_active_power , type ="l" , xlab = "" , ylab = "Global Active Power (kilowatts)")
+plot(data$Date , data$Global_active_power , type ="l" , xlab = "" , ylab = "Global Active Power (kilowatts)" , xaxt = "n")
+axis(1, at = as.POSIXct(c("2007-02-01", "2007-02-02", "2007-02-03")), labels = c("Thu", "Fri", "Sat"))
 dev.off()
